@@ -60,4 +60,4 @@ if __name__ == '__main__':
     pcsclient = MyDataWrapper()
     #print sys.argv[1]
     for filename in pcsclient.pcsSearchBatch(sys.argv[1]):
-        print filename
+        print filename.decode('utf-8')  #display chinese correctly, in win cmd.exe output.
