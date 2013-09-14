@@ -61,4 +61,4 @@ if __name__ == '__main__':
     pcsclient = MyDataWrapper()
     #print sys.argv[1]
     for filename in pcsclient.pcsSearchBatch(sys.argv[1]):
-		print filename
+        print filename
