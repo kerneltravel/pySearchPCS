@@ -41,7 +41,13 @@ class MyDataWrapper():
 
     def pcsSearch(self, pcsName, keyword):
         pcs = Client(self.pcslist[pcsName])
-        return pcs.search(self.APP_FOLDER(pcsName), keyword, re=1)
+        try:
+            code,r = pcs.search(self.APP_FOLDER(pcsName), keyword, re=1)
+        except requests.exceptions.ConnectionError:
+            print 'Network not connected.'
+            print 'Exit.'
+            exit()
+        return code,r
         
     def pcsCodeOK(self, code):
         return (code == requests.codes.ok)
